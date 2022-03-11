@@ -6,35 +6,65 @@ import javax.swing.JTextField;
 
 public class AddTextFields {
 	JPanelDatabase jpd;
+	JTextField namePart = new JTextField("engine 2.0 HDI");
+	//JTextField productionYear = new JTextField("2009");
+	JTextField pricePart = new JTextField("12000");
+	JTextField brand = new JTextField("Peugeot");
+	JTextField model = new JTextField("407");
+	//JTextField year = new JTextField("2009");
+	JTextField carID = new JTextField("1");
+	JTextField partID = new JTextField("1");
+	
+	JTextField IDUpdate = new JTextField("1");
+	JTextField IDCarUpdate = new JTextField("1");
+	JTextField IDPartUpdate = new JTextField("1");
+	
+	JTextField IdCarAddImg = new JTextField("1");
+	
 	public void createTextFields(JPanelDatabase ble) {
 		jpd = ble;
 		
-		JTextField namePart = new JTextField("Name of Part");
+		
 		namePart.setBounds(50, 100, 100, 40);
 		namePart.setBackground(Color.WHITE);
 		jpd.add(namePart);
 		
-		JTextField productionYear = new JTextField("Production-Year");
-		productionYear.setBounds(50, 170, 100, 40);
-		jpd.add(productionYear);
 		
-		JTextField pricePart = new JTextField("Price");
+		//productionYear.setBounds(50, 170, 100, 40);
+		//jpd.add(productionYear);
+		
+		
 		pricePart.setBounds(50, 240, 100, 40);
 		jpd.add(pricePart);
 
-		JTextField brand = new JTextField("Brand");
+		
 		brand.setBounds(1050, 100, 100, 40);
 		brand.setBackground(Color.WHITE);
 		jpd.add(brand);
 		
-		JTextField model = new JTextField("Model");
+		
 		model.setBounds(1050, 170, 100, 40);
 		jpd.add(model);
 		
-		JTextField year = new JTextField("Year");
-		year.setBounds(1050, 240, 100, 40);
-		jpd.add(year);
+		
+		//year.setBounds(1050, 240, 100, 40);
+		//jpd.add(year);
 
+		carID.setBounds(100, 450, 100, 40);
+		jpd.add(carID);
+		
+		partID.setBounds(100, 530, 100, 40);
+		jpd.add(partID);
+		
+		IDUpdate.setBounds(950, 470, 100, 40);
+		jpd.add(IDUpdate);
+		IDCarUpdate.setBounds(950, 540, 100, 40);
+		jpd.add(IDCarUpdate);
+		IDPartUpdate.setBounds(950, 610, 100, 40);
+		jpd.add(IDPartUpdate);
+		
+		IdCarAddImg.setBounds(970, 360, 50, 40);
+		jpd.add(IdCarAddImg);
 	}
 
 }

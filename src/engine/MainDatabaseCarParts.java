@@ -11,7 +11,7 @@ public class MainDatabaseCarParts {
 
 	public static void main(String[] args) {
 		DBconnection myConnection = new DBconnection();
-		myConnection.executeQuery();
+		myConnection.executeQuery("");
 		
 		AddTextFields myTextField = new AddTextFields();
 		AddButtons myButtons = new AddButtons();
