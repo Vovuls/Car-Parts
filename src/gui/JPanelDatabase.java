@@ -6,11 +6,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.Icon;
@@ -25,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 
 import engine.DBconnection;
+import engine.myQuery;
 
 public class JPanelDatabase extends JPanel {
 	String queryToExecute = "";
@@ -199,23 +196,11 @@ public class JPanelDatabase extends JPanel {
 				ImageIcon imageIcon = new ImageIcon(imageScaled);
 				modelTableCars.setValueAt(imageIcon, idCarIntPanel, 4);
 				
-				
-				// to database
-				FileInputStream fis = null;
 				try {
-					fis = new FileInputStream("carsImages\\"+path);
-				} catch (FileNotFoundException e1) {
+					myQuery.addImages(idCarIntPanel, path);
+				} catch (IOException e2) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				//queryToExecute = ;
-				myQuery.addImages(mydata,fis,idCarIntPanel);
-				//panelConnection.executeQuery("");
-				try {
-					fis.close();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					e2.printStackTrace();
 				}
 			};
 			

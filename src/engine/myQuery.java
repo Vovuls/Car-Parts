@@ -1,10 +1,8 @@
-package gui;
+package engine;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,22 +38,19 @@ public class myQuery {
 			e.printStackTrace();
 		}
 	}
-
-	// Add Image to DATABASE - To Finish
-	public static void addImages(File file,FileInputStream fis,int idCarIntPanel) {
+	
+		public static void addImages(int idCarIntPanel, String path) throws IOException {
+			idCarIntPanel += 1;
 		try {
 			String url = "jdbc:postgresql://localhost/Samochody";
 			Connection conn = DriverManager.getConnection(url, "postgres", "admin");
 			Statement st = conn.createStatement();
-		
-			//st.executeUpdate(queryToExecute);
-			
-			//("INSERT INTO images VALUES (?, ?)")
-			PreparedStatement ps = conn.prepareStatement("UPDATE Car SET img = "+ "?" + " WHERE ID = "+idCarIntPanel+ ";");
-			//ps.setString(1, file.getName());
-			ps.setBinaryStream(1, fis, file.length());
-			ps.executeUpdate();
-			ps.close();
+			st.executeUpdate("UPDATE Car SET img ="+ "pg_read_binary_file('C:/Users/Public/carsImages/"+path+"')" + " WHERE ID = "+idCarIntPanel+ ";");
+			ResultSet rsCar = st.executeQuery("SELECT * FROM Car ORDER BY ID ASC");
+			while (rsCar.next()) {
+				System.out.println(rsCar.getString(1) + " " + rsCar.getString(2) + " " + rsCar.getString(3)
+						+ " " + rsCar.getString(4) + " " + rsCar.getString(5));
+			}
 			// in JPanelDatabase we only call this addImages function 
 		} catch (SQLException e) {
 			e.printStackTrace();

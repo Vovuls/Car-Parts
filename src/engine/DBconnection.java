@@ -67,8 +67,6 @@ public class DBconnection {
 				// END Part TABLE
 			}
 			
-			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

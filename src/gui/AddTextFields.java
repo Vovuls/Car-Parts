@@ -29,11 +29,6 @@ public class AddTextFields {
 		namePart.setBackground(Color.WHITE);
 		jpd.add(namePart);
 		
-		
-		//productionYear.setBounds(50, 170, 100, 40);
-		//jpd.add(productionYear);
-		
-		
 		pricePart.setBounds(50, 240, 100, 40);
 		jpd.add(pricePart);
 
@@ -46,10 +41,6 @@ public class AddTextFields {
 		model.setBounds(1050, 170, 100, 40);
 		jpd.add(model);
 		
-		
-		//year.setBounds(1050, 240, 100, 40);
-		//jpd.add(year);
-
 		carID.setBounds(100, 450, 100, 40);
 		jpd.add(carID);
 		
